@@ -317,7 +317,9 @@
                 <input type="text" placeholder="Email Subject">
             </div>
             <textarea cols="30" rows="6" placeholder="Your Message" required></textarea>
+                <div class="form-message" style="display: none;"></div>
             <button type="submit" class="btn">Send Message</button>
+</form>
         </form>
     </div>
 </section>
@@ -331,6 +333,127 @@
     </div>
 </div>
 <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    // العناصر الأساسية
+    const contactForm = document.querySelector('.contact-form');
+    const formMessage = createFormMessageElement();
+    contactForm.appendChild(formMessage);    
+    const messages = {
+success: 'Thank you! Your message has been received successfully.',
+error: 'An error occurred while sending your message. Please try again later.',
+validation: 'Please fill in all required fields correctly.',
+sending: 'Sending your message...'
+    };
+    
+    contactForm.addEventListener('submit', handleFormSubmit);
+    setupInputEvents();
+    
+    function createFormMessageElement() {
+        const div = document.createElement('div');
+        div.className = 'form-message';
+        div.style.display = 'none';
+        return div;
+    }
+    
+    function handleFormSubmit(e) {
+        e.preventDefault();
+        
+        if (!validateForm()) {
+            showMessage(messages.validation, 'error');
+            return;
+        }
+        
+        sendFormData();
+    }
+    
+    function validateForm() {
+        let isValid = true;
+        const requiredFields = contactForm.querySelectorAll('[required]');
+        
+        requiredFields.forEach(field => {
+            if (!field.value.trim()) {
+                markFieldAsInvalid(field);
+                isValid = false;
+            } else {
+                markFieldAsValid(field);
+            }
+            
+            if (field.type === 'email' && field.value.trim() && !isValidEmail(field.value)) {
+                markFieldAsInvalid(field);
+                isValid = false;
+            }
+        });
+        
+        return isValid;
+    }
+    
+    function isValidEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    }
+    
+    function markFieldAsInvalid(field) {
+        field.style.borderColor = '#dc3545';
+        field.parentElement.classList.add('invalid');
+    }
+    
+    function markFieldAsValid(field) {
+        field.style.borderColor = '';
+        field.parentElement.classList.remove('invalid');
+    }
+    
+    function showMessage(message, type) {
+        formMessage.textContent = message;
+        formMessage.className = `form-message ${type}`;
+        formMessage.style.display = 'block';
+        
+        if (type !== 'sending') {
+            setTimeout(() => {
+                formMessage.style.display = 'none';
+            }, 7000);
+        }
+    }
+    
+    function setupInputEvents() {
+        const inputs = contactForm.querySelectorAll('input, textarea');
+        
+        inputs.forEach(input => {
+            input.addEventListener('input', function() {
+                if (this.hasAttribute('required') && this.value.trim()) {
+                    markFieldAsValid(this);
+                }
+                
+                if (this.type === 'email' && this.value.trim()) {
+                    if (isValidEmail(this.value)) {
+                        markFieldAsValid(this);
+                    } else {
+                        markFieldAsInvalid(this);
+                    }
+                }
+            });
+            
+            input.addEventListener('focus', function() {
+                this.style.borderColor = 'var(--main-color)';
+            });
+            
+            input.addEventListener('blur', function() {
+                if (!this.classList.contains('invalid')) {
+                    this.style.borderColor = '';
+                }
+            });
+        });
+    }
+    
+    function sendFormData() {
+        showMessage(messages.sending, 'info');
+                setTimeout(() => {
+            showMessage(messages.success, 'success');
+            contactForm.reset();
+            
+        }, 2000);
+    }
+    
+});
 document.addEventListener('DOMContentLoaded', function() {
     const projectLinks = document.querySelectorAll('.project-links a:first-child');
     const videoPopup = document.querySelector('.video-popup');
