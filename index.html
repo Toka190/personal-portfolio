@@ -1106,61 +1106,65 @@
             <a href="#contact" class="btn">Let's Talk</a>
         </div>
     </section>
-
-<!-- Experience Section - تصميم Timeline احترافي -->
-<!-- Experience Section - Timeline أنيق وبسيط -->
+<!-- Experience Section - Timeline متجاوب مع الموبايل -->
 <section class="experience" id="experience">
     <h2 class="titles">My Journey</h2>
 
-    <div style="max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 3rem;">
+    <div style="max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 2rem;">
 
         <!-- NTG Clarity -->
         <div style="
             display: flex;
-            align-items: center;
-            gap: 2rem;
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 1.5rem;
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
             backdrop-filter: blur(10px);
-            border-radius: 2rem;
-            padding: 2.5rem;
+            border-radius: 1.5rem;
+            padding: 2rem;
             transition: 0.4s ease;
             box-shadow: var(--card-shadow);
-        " onmouseover="this.style.borderColor='#e11d48'; this.style.transform='translateX(15px) scale(1.02)';" 
+            flex-wrap: wrap;
+        " onmouseover="this.style.borderColor='#e11d48'; this.style.transform='translateX(5px) scale(1.01)';" 
            onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0) scale(1)';">
             
+            <!-- التاريخ -->
             <div style="
-                min-width: 90px;
-                text-align: center;
+                min-width: auto;
+                width: auto;
                 background: rgba(225, 29, 72, 0.15);
-                padding: 0.8rem 1rem;
+                padding: 0.5rem 1.2rem;
                 border-radius: 3rem;
                 color: var(--main-color);
                 font-weight: 600;
                 font-size: 1.3rem;
+                white-space: nowrap;
             ">
                 <i class="fas fa-calendar" style="margin-right: 0.5rem;"></i>Nov 2025 – now
             </div>
             
-            <div style="flex: 1;">
-                <h4 style="font-size: 2rem; margin-bottom: 0.2rem;">Flutter & Web Instructor</h4>
+            <!-- المحتوى -->
+            <div style="flex: 1; min-width: 250px;">
+                <h4 style="font-size: 1.9rem; margin-bottom: 0.3rem;">Flutter & Web Instructor</h4>
                 <p style="color: var(--main-color-light); font-size: 1.5rem; margin-bottom: 0.5rem;">NTG Clarity</p>
-                <p style="font-size: 1.4rem; color: #b0b0b0; line-height: 1.6;">
-                    Teaching Flutter and modern web development while building real‑world projects 
-                    with students — combining hands‑on coding with production‑ready practices.
+                <p style="font-size: 1.4rem; color: #b0b0b0; line-height: 1.5;">
+                    Teaching Flutter and web development through real‑world projects, combining hands‑on coding with practical exercises.
                 </p>
             </div>
             
+            <!-- الأيقونة (تختفي في الموبايل الصغير) -->
             <div style="
-                width: 50px;
-                height: 50px;
+                width: 45px;
+                height: 45px;
                 background: rgba(225, 29, 72, 0.15);
                 border-radius: 50%;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 color: var(--main-color);
-                font-size: 2.2rem;
+                font-size: 2rem;
+                flex-shrink: 0;
             ">
                 <i class="fas fa-chalkboard-teacher"></i>
             </div>
@@ -1169,50 +1173,53 @@
         <!-- Innovatera -->
         <div style="
             display: flex;
-            align-items: center;
-            gap: 2rem;
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 1.5rem;
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
             backdrop-filter: blur(10px);
-            border-radius: 2rem;
-            padding: 2.5rem;
+            border-radius: 1.5rem;
+            padding: 2rem;
             transition: 0.4s ease;
             box-shadow: var(--card-shadow);
-        " onmouseover="this.style.borderColor='#e11d48'; this.style.transform='translateX(15px) scale(1.02)';" 
+            flex-wrap: wrap;
+        " onmouseover="this.style.borderColor='#e11d48'; this.style.transform='translateX(5px) scale(1.01)';" 
            onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0) scale(1)';">
             
             <div style="
-                min-width: 90px;
-                text-align: center;
+                min-width: auto;
+                width: auto;
                 background: rgba(225, 29, 72, 0.15);
-                padding: 0.8rem 1rem;
+                padding: 0.5rem 1.2rem;
                 border-radius: 3rem;
                 color: var(--main-color);
                 font-weight: 600;
                 font-size: 1.3rem;
+                white-space: nowrap;
             ">
-                <i class="fas fa-calendar" style="margin-right: 0.5rem;"></i>Jun 2025 – Sep 2025
+                <i class="fas fa-calendar" style="margin-right: 0.5rem;"></i>Jun – Sep 2025
             </div>
             
-            <div style="flex: 1;">
-                <h4 style="font-size: 2rem; margin-bottom: 0.2rem;">JavaScript Content Developer</h4>
+            <div style="flex: 1; min-width: 250px;">
+                <h4 style="font-size: 1.9rem; margin-bottom: 0.3rem;">JavaScript Content Developer</h4>
                 <p style="color: var(--main-color-light); font-size: 1.5rem; margin-bottom: 0.5rem;">Innovatera</p>
-                <p style="font-size: 1.4rem; color: #b0b0b0; line-height: 1.6;">
-                    Designed interactive JavaScript exercises and real‑world code examples, 
-                    helping learners master ES6+, async patterns, and modern tooling through hands‑on practice.
+                <p style="font-size: 1.4rem; color: #b0b0b0; line-height: 1.5;">
+                    Created interactive coding exercises and real‑world examples to teach ES6+, async patterns, and modern JavaScript.
                 </p>
             </div>
             
             <div style="
-                width: 50px;
-                height: 50px;
+                width: 45px;
+                height: 45px;
                 background: rgba(225, 29, 72, 0.15);
                 border-radius: 50%;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 color: var(--main-color);
-                font-size: 2.2rem;
+                font-size: 2rem;
+                flex-shrink: 0;
             ">
                 <i class="fas fa-file-code"></i>
             </div>
@@ -1221,57 +1228,61 @@
         <!-- Freelance Projects -->
         <div style="
             display: flex;
-            align-items: center;
-            gap: 2rem;
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 1.5rem;
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
             backdrop-filter: blur(10px);
-            border-radius: 2rem;
-            padding: 2.5rem;
+            border-radius: 1.5rem;
+            padding: 2rem;
             transition: 0.4s ease;
             box-shadow: var(--card-shadow);
-        " onmouseover="this.style.borderColor='#e11d48'; this.style.transform='translateX(15px) scale(1.02)';" 
+            flex-wrap: wrap;
+        " onmouseover="this.style.borderColor='#e11d48'; this.style.transform='translateX(5px) scale(1.01)';" 
            onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0) scale(1)';">
             
             <div style="
-                min-width: 90px;
-                text-align: center;
+                min-width: auto;
+                width: auto;
                 background: rgba(225, 29, 72, 0.15);
-                padding: 0.8rem 1rem;
+                padding: 0.5rem 1.2rem;
                 border-radius: 3rem;
                 color: var(--main-color);
                 font-weight: 600;
                 font-size: 1.3rem;
+                white-space: nowrap;
             ">
                 <i class="fas fa-calendar" style="margin-right: 0.5rem;"></i>2022 – now
             </div>
             
-            <div style="flex: 1;">
-                <h4 style="font-size: 2rem; margin-bottom: 0.2rem;">Frontend Developer</h4>
+            <div style="flex: 1; min-width: 250px;">
+                <h4 style="font-size: 1.9rem; margin-bottom: 0.3rem;">Frontend Developer</h4>
                 <p style="color: var(--main-color-light); font-size: 1.5rem; margin-bottom: 0.5rem;">Freelance Projects</p>
-                <p style="font-size: 1.4rem; color: #b0b0b0; line-height: 1.6;">
-                    Delivered multiple real‑world responsive web applications using React and JavaScript, 
-                    collaborating directly with clients to turn requirements into clean, production‑ready code.
+                <p style="font-size: 1.4rem; color: #b0b0b0; line-height: 1.5;">
+                    Delivered responsive web apps using React and JavaScript, working directly with clients to turn ideas into clean, functional code.
                 </p>
             </div>
             
             <div style="
-                width: 50px;
-                height: 50px;
+                width: 45px;
+                height: 45px;
                 background: rgba(225, 29, 72, 0.15);
                 border-radius: 50%;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 color: var(--main-color);
-                font-size: 2.2rem;
+                font-size: 2rem;
+                flex-shrink: 0;
             ">
                 <i class="fas fa-laptop-code"></i>
             </div>
         </div>
 
     </div>
-</section>    <section class="projects" id="projects">
+</section>
+  <section class="projects" id="projects">
         <h2 class="titles">My Projects</h2>
         <div class="projects-container">
             <!-- Project 1 -->
