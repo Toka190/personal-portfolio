@@ -3,63 +3,1069 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toka Salah | Front-end Developer | Portfolio</title>
-    <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-/>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Toka Salah | Front-end Developer | Flutter Instructor</title>
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            border: none;
+            outline: none;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --bg-color: #0a0c0f;
+            --second-bg-color: #1a1e26;
+            --text-color: #ffffff;
+            --main-color: #e11d48;
+            --main-color-light: #fb7185;
+            --main-color-dark: #9f1239;
+            --glass-bg: rgba(26, 30, 38, 0.8);
+            --glass-border: rgba(255, 255, 255, 0.05);
+            --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+            --hover-shadow: 0 20px 40px -10px rgba(225, 29, 72, 0.3);
+        }
+
+        html {
+            font-size: 62.5%;
+            overflow-x: hidden;
+        }
+
+        body {
+            background: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--second-bg-color);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--main-color);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--main-color-light);
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem 9%;
+            background: rgba(10, 12, 15, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--glass-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            animation: slideDown 0.5s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            font-size: 2.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--main-color), var(--main-color-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+        }
+
+        .navbar {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .navbar a {
+            font-size: 1.6rem;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .navbar a::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--main-color), var(--main-color-light));
+            transition: width 0.3s ease;
+        }
+
+        .navbar a:hover::before,
+        .navbar a.active::before {
+            width: 100%;
+        }
+
+        .navbar a:hover {
+            color: var(--main-color);
+        }
+
+        #menu-icon {
+            font-size: 3.6rem;
+            color: var(--text-color);
+            display: none;
+            cursor: pointer;
+        }
+
+        /* Sections */
+        section {
+            min-height: 100vh;
+            padding: 10rem 9% 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Home Section */
+        .home {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5rem;
+            background: radial-gradient(circle at 10% 30%, rgba(225, 29, 72, 0.1) 0%, transparent 30%),
+                        radial-gradient(circle at 90% 70%, rgba(251, 113, 133, 0.1) 0%, transparent 30%);
+        }
+
+        .home-content {
+            flex: 1;
+            animation: fadeInLeft 1s ease;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .home-content h3 {
+            font-size: 3.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .home-content h1 {
+            font-size: 6rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #fff, var(--main-color-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glowPulse 3s infinite;
+        }
+
+        @keyframes glowPulse {
+            0%, 100% {
+                text-shadow: 0 0 20px rgba(225, 29, 72, 0.3);
+            }
+            50% {
+                text-shadow: 0 0 40px rgba(225, 29, 72, 0.6);
+            }
+        }
+
+        .home-content h3 span {
+            color: var(--main-color);
+            position: relative;
+            display: inline-block;
+        }
+
+        .home-content h3 span::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--main-color);
+            animation: lineWidth 3s infinite;
+        }
+
+        @keyframes lineWidth {
+            0%, 100% {
+                width: 0;
+                left: 0;
+            }
+            50% {
+                width: 100%;
+                left: 0;
+            }
+        }
+
+        .home-content p {
+            font-size: 1.8rem;
+            color: #a0a0a0;
+            margin: 2rem 0 3rem;
+            max-width: 600px;
+        }
+
+        .social-media {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .social-media a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 4.5rem;
+            height: 4.5rem;
+            background: var(--second-bg-color);
+            border: 1px solid var(--glass-border);
+            border-radius: 50%;
+            font-size: 2rem;
+            color: var(--text-color);
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-media a::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: var(--main-color);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: 0.4s;
+            z-index: -1;
+        }
+
+        .social-media a:hover::before {
+            width: 100%;
+            height: 100%;
+        }
+
+        .social-media a:hover {
+            color: #fff;
+            border-color: var(--main-color);
+            transform: translateY(-5px);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1.5rem 3rem;
+            background: linear-gradient(135deg, var(--main-color), var(--main-color-dark));
+            border-radius: 5rem;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #fff;
+            letter-spacing: 1px;
+            transition: 0.4s;
+            box-shadow: 0 5px 20px rgba(225, 29, 72, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(225, 29, 72, 0.6);
+        }
+
+        .home-img {
+            flex: 1;
+            text-align: center;
+            animation: fadeInRight 1s ease;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .home-img img {
+            width: 30vw;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            border: 3px solid var(--main-color);
+            box-shadow: 0 0 50px rgba(225, 29, 72, 0.4);
+            animation: morphImage 8s ease-in-out infinite;
+        }
+
+        @keyframes morphImage {
+            0%, 100% {
+                border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            }
+            25% {
+                border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
+            }
+            50% {
+                border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%;
+            }
+            75% {
+                border-radius: 60% 40% 40% 60% / 60% 60% 40% 40%;
+            }
+        }
+
+        /* Section Titles */
+        .titles {
+            font-size: 4rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 5rem;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .titles::before {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--main-color), transparent);
+        }
+
+        /* About Section - محسّن */
+        .about {
+            background: var(--second-bg-color);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .about-left {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .detail-box {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 2rem;
+            display: flex;
+            gap: 2rem;
+            transition: 0.4s;
+        }
+
+        .detail-box:hover {
+            transform: translateY(-5px);
+            border-color: var(--main-color);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .detail-box i {
+            font-size: 3rem;
+            color: var(--main-color);
+        }
+
+        .detail-box h4 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-box p {
+            font-size: 1.5rem;
+            color: #b0b0b0;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .skills-list span {
+            background: var(--main-color);
+            color: #fff;
+            padding: 0.6rem 1.6rem;
+            border-radius: 3rem;
+            font-size: 1.3rem;
+            font-weight: 500;
+            transition: 0.3s;
+            cursor: default;
+        }
+
+        .skills-list span:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(225, 29, 72, 0.4);
+        }
+
+        .certificates-wrapper {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 2rem;
+            transition: 0.4s;
+        }
+
+        .certificates-wrapper:hover {
+            border-color: var(--main-color);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .certificates-wrapper h4 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--main-color-light);
+        }
+
+        .certificate-item {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--main-color);
+            transition: 0.3s;
+            font-size: 1.5rem;
+            color: #ddd;
+        }
+
+        .certificate-item:hover {
+            transform: translateX(10px);
+            background: rgba(225, 29, 72, 0.1);
+        }
+
+        /* Responsive About */
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Experience Section */
+        .experience-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .experience-box {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            border-radius: 2rem;
+            transition: 0.4s;
+        }
+
+        .experience-box:hover {
+            transform: translateY(-10px);
+            border-color: var(--main-color);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .experience-box i {
+            font-size: 4rem;
+            color: var(--main-color);
+            margin-bottom: 2rem;
+        }
+
+        .experience-box h3 {
+            font-size: 2.2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .content {
+            margin-bottom: 3rem;
+        }
+
+        .year {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.4rem;
+            color: var(--main-color);
+            background: rgba(225, 29, 72, 0.1);
+            padding: 0.5rem 1.5rem;
+            border-radius: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .year i {
+            font-size: 1.4rem;
+            margin: 0;
+        }
+
+        .content h4 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .content li {
+            font-size: 1.4rem;
+            color: #a0a0a0;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .content li::before {
+            content: '▹';
+            color: var(--main-color);
+            font-size: 1.8rem;
+        }
+
+        /* Projects Section */
+        .projects {
+            background: var(--second-bg-color);
+        }
+
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .project-box {
+            position: relative;
+            border-radius: 2rem;
+            overflow: hidden;
+            height: 280px;
+            background: var(--bg-color);
+        }
+
+        .project-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.6s;
+        }
+
+        .project-box:hover img {
+            transform: scale(1.1);
+        }
+
+        .project-layer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(225, 29, 72, 0.95), rgba(159, 18, 57, 0.95));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            transform: translateY(100%);
+            transition: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .project-box:hover .project-layer {
+            transform: translateY(0);
+        }
+
+        .project-layer h4 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            transform: translateY(30px);
+            opacity: 0;
+            transition: 0.4s 0.2s;
+        }
+
+        .project-layer p {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            transform: translateY(30px);
+            opacity: 0;
+            transition: 0.4s 0.3s;
+        }
+
+        .tech-used {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+            transform: translateY(30px);
+            opacity: 0;
+            transition: 0.4s 0.4s;
+        }
+
+        .tech-used span {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1.2rem;
+            border-radius: 3rem;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1.5rem;
+            transform: translateY(30px);
+            opacity: 0;
+            transition: 0.4s 0.5s;
+        }
+
+        .project-box:hover .project-layer h4,
+        .project-box:hover .project-layer p,
+        .project-box:hover .project-layer .tech-used,
+        .project-box:hover .project-layer .project-links {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .project-links a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 4rem;
+            height: 4rem;
+            background: #fff;
+            border-radius: 50%;
+            color: var(--main-color);
+            font-size: 2rem;
+            transition: 0.3s;
+        }
+
+        .project-links a:hover {
+            background: var(--main-color);
+            color: #fff;
+            transform: rotate(360deg);
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .contact-box {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            transition: 0.4s;
+        }
+
+        .contact-box:hover {
+            transform: translateX(10px);
+            border-color: var(--main-color);
+        }
+
+        .contact-box i {
+            font-size: 3rem;
+            color: var(--main-color);
+            width: 5rem;
+            height: 5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(225, 29, 72, 0.1);
+            border-radius: 50%;
+        }
+
+        .contact-box h4 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-box p {
+            font-size: 1.4rem;
+            color: #a0a0a0;
+        }
+
+        .contact-form {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            border-radius: 2rem;
+        }
+
+        .input-group {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .input-group input,
+        textarea {
+            width: 100%;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            border-radius: 1rem;
+            color: #fff;
+            font-size: 1.4rem;
+            transition: 0.4s;
+        }
+
+        .input-group input:focus,
+        textarea:focus {
+            border-color: var(--main-color);
+            box-shadow: 0 0 20px rgba(225, 29, 72, 0.3);
+        }
+
+        .input-group input:hover,
+        textarea:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        textarea {
+            margin-bottom: 2rem;
+            resize: none;
+        }
+
+        /* Video Popup */
+        .video-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .video-popup.show {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .popup-content {
+            position: relative;
+            width: 90%;
+            max-width: 900px;
+            animation: scaleIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .close-btn {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 40px;
+            height: 40px;
+            background: var(--main-color);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: 0.3s;
+            z-index: 1;
+        }
+
+        .close-btn:hover {
+            transform: rotate(90deg);
+            background: var(--main-color-dark);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 1rem;
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .form-message {
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 1rem;
+            text-align: center;
+            font-size: 1.4rem;
+            animation: slideUp 0.3s ease;
+        }
+
+        .form-message.success {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid #22c55e;
+            color: #22c55e;
+        }
+
+        .form-message.error {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid #ef4444;
+            color: #ef4444;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            html {
+                font-size: 55%;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .home-content h1 {
+                font-size: 4.5rem;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #menu-icon {
+                display: block;
+            }
+
+            .navbar {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                padding: 2rem;
+                background: var(--glass-bg);
+                backdrop-filter: blur(10px);
+                border-bottom: 1px solid var(--glass-border);
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
+                transform: scaleY(0);
+                transform-origin: top;
+                transition: 0.4s;
+            }
+
+            .navbar.active {
+                transform: scaleY(1);
+            }
+
+            .home {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .home-content p {
+                margin: 2rem auto;
+            }
+
+            .social-media {
+                justify-content: center;
+            }
+
+            .home-img img {
+                width: 50vw;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .input-group {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 450px) {
+            html {
+                font-size: 50%;
+            }
+
+            .home-img img {
+                width: 70vw;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .loading::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            100% {
+                left: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header  class="header">
-        <a href="#" class="logo" >𝙿𝚘𝚛𝚝𝚏𝚘𝚕𝚒𝚘</a>
-        <i class='bx  bx-menu-wide' id="menu-icon" ></i> 
+    <header class="header">
+        <a href="#" class="logo">Toka Salah</a>
+        <i class='bx bx-menu' id="menu-icon"></i>
         <nav class="navbar">
-            <a href="#home" class="active">Home</a>         
+            <a href="#home" class="active">Home</a>
             <a href="#about">About</a>
-            <a href="#experience">Experiences</a>
+            <a href="#experience">Experience</a>
             <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
-
         </nav>
     </header>
+
     <section class="home" id="home">
         <div class="home-content">
-            <h3>Hello , It's Me</h3>
-            <h1 id="animated-name">Toka Salah</h1>
-            
-            <h3> I am a <span>Front-End Developer</span></h3>
-            <p>I specialize in building responsive, user-friendly websites .
-                I'm passionate about turning ideas into interactive digital experiences.</p>
-                <div class="social-madia">
-                    <a href="https://www.linkedin.com/in/tokasalah2002" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="https://github.com/Toka190" target="_blank"><i class="fa-brands fa-github"></i></a>
-<a href="https://mail.google.com/mail/?view=cm&fs=1&to=toka22salah@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i></a>
-                    <a href="https://wa.me/201119672174" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-
-                </div>
-         <a href="Toka Salah CV.pdf" download class="btn">Download CV</a>
+            <h3>Hello, I'm</h3>
+            <h1>Toka Salah</h1>
+            <h3>and I'm a <span>Flutter & Web Developer</span></h3>
+            <p>Building responsive web applications and teaching the next generation of developers. Passionate about creating seamless digital experiences.</p>
+            <div class="social-media">
+                <a href="https://www.linkedin.com/in/tokasalah2002" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/Toka190" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:toka22salah@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://wa.me/201119672174" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <a href="Toka Salah CV.pdf" download class="btn">Download CV</a>
         </div>
-        <div class="home-img"><img src="images/img.jpg"></div>
+        <div class="home-img">
+            <img src="images/img.jpeg" alt="Toka Salah">
+        </div>
     </section>
 
+    <!-- About Section - محسّن بالكامل -->
     <section class="about" id="about">
-    <div class="about-content">
-        <div class="about-text">
-                <h2 class="titles">About Me</h2>
+        <h2 class="titles">About Me</h2>
+        <div class="about-content">
+            <!-- الجزء الأيسر (أول تلات Details) -->
+            <div class="about-left">
+                                <div class="detail-box">
+                    <i class="fas fa-briefcase"></i>
+                    <div>
+                        <h4>Current Position</h4>
+                        <p>Flutter & Web Development Instructor<br>at NTG Clarity</p>
+                    </div>
+                </div>
 
-            <h3>Front-End Developer</h3>
-            
-            <div class="about-details">
                 <div class="detail-box">
                     <i class="fas fa-user-graduate"></i>
                     <div>
                         <h4>Education</h4>
-                        <p >Bachelor's in Computer Science & AI<br>Helwan University, 2025</p>
+                        <p>Bachelor's in Computer Science & AI<br>Helwan University, 2025</p>
+                        <p>Overall Grade: Very Good</p>
+
                     </div>
                 </div>
-                
                 <div class="detail-box">
                     <i class="fas fa-code"></i>
                     <div>
@@ -69,503 +1075,619 @@
                             <span>CSS3</span>
                             <span>JavaScript</span>
                             <span>React</span>
+                            <span>Flutter</span>
+                            <span>Dart</span>
                             <span>Bootstrap</span>
                             <span>Git</span>
                             <span>MySQL</span>
                             <span>PHP</span>
-                             <span>Microsoft Office</span>
-                             <span>Canva</span>
-                             <span>Figma</span>
-
-
+                            <span>Figma</span>
                         </div>
                     </div>
                 </div>
-                
-                <div class="detail-box">
-                    <i class="fas fa-lightbulb"></i>
-                    <div>
-                        <h4>Passion</h4>
-                        <p >I love creating beautiful, accessible websites that solve real problems. 
-                        My goal is to build products that provide meaningful user experiences.</p>
-                    </div>
-                </div>
-                <div class="detail-box">
-                    <i class="fas fa-certificate"></i>
-                                    <div class="certificates">
-
-    <h4>My Certificates</h4>
-    <div class="certificate-item">
-         <h4>Web Development using php & MySQL- ITI </h4>
-
-    </div>
-        <div class="certificate-item">
-         <h4> Data Analysis Trainee - Depi </h4>
-
-    </div>
-        <div class="certificate-item">
-         <h4> Frontend Trainee - Codveda </h4>
-
-    </div>
-    
-
-</div> </div>
             </div>
-            
+
+            <!-- الجزء الأيمن (الشهادات بشكل واضح) -->
+            <div class="certificates-wrapper">
+                <h4><i class="fas fa-certificate" style="margin-right: 1rem;"></i> My Certificates</h4>
+                <div class="certificate-item">
+                    <strong>Web Development using PHP & MySQL</strong> – ITI
+                </div>
+                <div class="certificate-item">
+                    <strong>Data Analysis Trainee</strong> – DEPI (Graduated Dec 2024)
+                </div>
+                <div class="certificate-item">
+                    <strong>Frontend Trainee</strong> – Codveda
+                </div>
+            </div>
+        </div>
+        <!-- زر Let's Talk تحت -->
+        <div style="text-align: center; margin-top: 4rem;">
             <a href="#contact" class="btn">Let's Talk</a>
         </div>
-    </div>
-</section>
-<section class="experience" id="experience">
-    <h2 class="titles">Experience</h2>
-
-    <div class="experience-container">
-        <!-- Professional Experience -->
-        <div class="experience-box">
-            <i class="fas fa-briefcase"></i>
-            <h3>Professional Experience</h3>
-            <div class="experience-content">
-                <div class="content">
-                    <div class="year"><i class="fas fa-calendar"></i> 2023 - Present</div>
-                    <h4>Frontend Developer (Projects)</h4>
-                    <ul>
-                        <li>Developed responsive web applications using React</li>
-                        <li>Collaborated with teams in group projects</li>
-                        <li>Implemented modern UI/UX principles</li>
-                    </ul>
-            </div>
-                            <div class="content">
-                    <div class="year"><i class="fas fa-calendar"></i> Aug 2025 - Sep 2025</div>
-                    <h4> Frontend Development Trainee | Codveda</h4>
-                    <ul>
-                        <li>Developed three responsive web applications using React</li>
-                        <li>Developed applications using OpenAPI</li>
-                        <li>Implemented modern UI/UX principles</li>
-                    </ul>
-            </div>
-                <div class="content">
-                    <div class="year"><i class="fas fa-calendar"></i> Jun 2025- Sep 2025</div>
-                    <h4>JavaScript Content Developer | Innovatera</h4>
-                    <ul>
-                        <li>Developed interactive JavaScript content for programming courses</li>
-                       
-                     <li>Created comprehensive JavaScript coursematerials focusing on modern ES6+features</li>
-                                    </ul>
-</div>
-            </div>
-
-        </div>
-
-        <!-- ITI Training -->
-        <div class="experience-box">
-            <i class="fas fa-graduation-cap"></i>
-            <h3>Training & Education</h3>
-            <div class="experience-content">
-                <div class="content">
-                    <div class="year"><i class="fas fa-calendar"></i> 2023</div>
-                    <h4>ITI Web Development</h4>
-                    <ul>
-                        <li>1-month intensive training program</li>
-                        <li>Developed project with CRUD operations</li>
-                        <li>Learned full-stack development basics</li>
-                    </ul>
-                </div>
-
-                <div class="content">
-                    <div class="year"><i class="fas fa-calendar"></i> 2024</div>
-                    <h4>Digital Egypt Pioneers</h4>
-                    <ul>
-                        <li>Data Analysis track</li>
-                        <li>Currently in training</li>
-                        <li>Learning data visualization & analysis tools</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="projects" id="projects">
-    <h1 class="titles">My Projects</h1>
-    
-    <div class="projects-container">
-        <!-- Project 1 -->
-        <div class="project-box">
-            <img src="images/movies.jpg" alt="E-commerce Project">
-            <div class="project-layer">
-                <h4>Movies Rating App</h4>
-                <p>Responsive web application displyes real-time Movies rating</p>
-                <div class="tech-used">
-                    <span>React</span>
-                    <span>OMDB API</span>
-                    <span>JavaScript</span>
-                </div>
-                <div class="project-links">
-                    <a href="#" class="project-link" data-video="videos/movies.mp4">
-    <i class="fas fa-external-link-alt"></i>
-</a>
-                    <a href="https://github.com/Toka190/Weather-App"><i class="fab fa-github"></i></a>
-                </div>
-            </div>
-        </div>
-                <!-- Project 1 -->
-        <div class="project-box">
-            <img src="images/rose.jpg" alt="E-commerce Project">
-            <div class="project-layer">
-                <h4>Rose Store</h4>
-                <p>Responsive web application for online shopping</p>
-                <div class="tech-used">
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>JavaScript</span>
-                </div>
-                <div class="project-links">
-                    <a href="#" class="project-link" data-video="videos/rose.mp4">
-    <i class="fas fa-external-link-alt"></i>
-</a>
-                    <a href="https://github.com/Toka190/Weather-App"><i class="fab fa-github"></i></a>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Project 1 -->
-        <div class="project-box">
-            <img src="images/weather.jpg" alt="E-commerce Project">
-            <div class="project-layer">
-                <h4>Weather App</h4>
-                <p>Responsive web application displyes real-time weather</p>
-                <div class="tech-used">
-                    <span>React</span>
-                    <span>OpenWeatherMap API</span>
-                    <span>JavaScript</span>
-                </div>
-                <div class="project-links">
-                    <a href="#" class="project-link" data-video="videos/weather.mp4">
-    <i class="fas fa-external-link-alt"></i>
-</a>
-                    <a href="https://github.com/Toka190/Weather-App"><i class="fab fa-github"></i></a>
-                </div>
-            </div>
-        </div>
-        
-
-        
-        <!-- Project 2 -->
-        <div class="project-box">
-            <img src="images/pet.jpg" alt="Dashboard Project">
-            <div class="project-layer">
-                <h4>Pet Caretopia</h4>
-                <p>Full stack website for pet serving , adobting & ai recognition</p>
-                <div class="tech-used">
-                    <span>React</span>
-                    <span>springboot</span>
-                    <span>AI</span>
-                </div>
-                <div class="project-links"> <a href="#" class="project-link" data-video="videos/pet.mp4">
-    <i class="fas fa-external-link-alt"></i>
-</a>
-                    <a href="https://github.com/Toka190/Pet_caretopia-Graduation-Project-"><i class="fab fa-github"></i></a>
-                </div>
-            </div>
-        </div>
-        
-
-        <!-- Project 3 -->
-        <div class="project-box">
-            <img src="images/vax.jpg" alt="Portfolio Project">
-            <div class="project-layer">
-                <h4>vaxSchedular</h4>
-                <p>Veterinary Management Dashboard designed for managing veterinary clinic accounts. </p>
-                <div class="tech-used">
-                    <span>spring Boot</span>
-                    <span>CSS3</span>
-                    <span>JavaScript</span>
-                </div>
-                <div class="project-links">
-<a href="#" class="project-link" data-video="videos/vax.mp4">
-    <i class="fas fa-external-link-alt"></i>
-</a>                    <a href="https://github.com/Toka190/vaxSchedular"><i class="fab fa-github"></i></a>
-                </div>
-            </div>
-        </div>
-                <!-- Project 1 -->
-        <div class="project-box">
-            <img src="images/sky.png" alt="E-commerce Project">
-            <div class="project-layer">
-                <h4>Sky News</h4>
-                <p>Responsive website to display a clean, professional-looking news interface</p>
-                <div class="tech-used">
-                    <span>html</span>
-                    <span>css</span>
-                    <span>JavaScript</span>
-                </div>
-                <div class="project-links" >
-
-                    <a href="#" class="project-link" data-video="videos/sky.mp4">
-    <i class="fas fa-external-link-alt"></i>
-</a>
-                    <a href="https://github.com/Toka190/sky-news"><i class="fab fa-github"></i></a>
-                </div>
-            </div>
-        </div>
-        <!-- Project 1 -->
-        <div class="project-box">
-            <img src="images/perfume.png" alt="E-commerce Project">
-            <div class="project-layer">
-                <h4>Perfumes Store</h4>
-                <p>web development, focusing on building UI layouts using HTML, CSS, and a little JavaScript.</p>
-                <div class="tech-used">
-                    <span>html</span>
-                    <span>css</span>
-                    <span>JavaScript</span>
-                </div>
-                <div class="project-links">
-<a href="#" class="project-link" data-video="videos/perfume.mp4">
-    <i class="fas fa-external-link-alt"></i>
-</a>                    <a href="https://github.com/Toka190/perfume"><i class="fab fa-github"></i></a>
-                </div>
-            </div>
-        </div>
-        <!-- Project 1 -->
-        <div class="project-box">
-            <img src="images/heart.webp" alt="E-commerce Project">
-            <div class="project-layer">
-                <h4>Heart Disease Prediction Model </h4>
-                <p> Machine Learning model that predicts whether a person is at risk of heart disease based on their lifestyle factors</p>
-                <div class="tech-used">
-                    <span>Python</span>
-                    <span>KNN </span>
-                    <span>Naive Bayes</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://github.com/Toka190/classification-model"><i class="fab fa-github"></i></a>
-                </div>
-            </div>
-        </div>
-
-    </div>
     </section>
-<section class="contact" id="contact">
-    <h2 class="titles" >Contact Me</h2>
 
-    <div class="contact-content">
-        <div class="contact-info">
-            <div class="contact-box">
-                <i class="fas fa-envelope"></i>
-                <div>
-                    <h4>Email</h4>
-                    <p>toka22salahgmail.com</p>
-                </div>
-            </div>
+<!-- Experience Section - تصميم Timeline احترافي -->
+<!-- Experience Section - Timeline أنيق وبسيط -->
+<section class="experience" id="experience">
+    <h2 class="titles">My Journey</h2>
 
-            <div class="contact-box">
-                <i class="fas fa-phone"></i>
-                <div>
-                    <h4>Phone</h4>
-                    <p>+20 111 967 2174</p>
-                </div>
-            </div>
+    <div style="max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 3rem;">
 
-            <div class="contact-box">
-                <i class="fas fa-map-marker-alt"></i>
-                <div>
-                    <h4>Location</h4>
-                    <p>Cairo, Egypt</p>
-                </div>
-            </div>
-        </div>
-
-        <form class="contact-form">
-            <div class="input-group">
-                <input type="text" placeholder="Full Name" required>
-                <input type="email" placeholder="Email Address" required>
-            </div>
-            <div class="input-group">
-                <input type="text" placeholder="Mobile Number">
-                <input type="text" placeholder="Email Subject">
-            </div>
-            <textarea cols="30" rows="6" placeholder="Your Message" required></textarea>
-                <div class="form-message" style="display: none;"></div>
-            <button type="submit" class="btn">Send Message</button>
-</form>
-        </form>
-    </div>
-</section>
-<!-- Video Popup  -->
-<div class="video-popup">
-    <div class="popup-content">
-        <span class="close-btn">&times;</span>
-        <div class="video-container">
-            <iframe id="project-video" width="560" height="315" frameborder="0" allowfullscreen></iframe>
-        </div>
-    </div>
-</div>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-    // العناصر الأساسية
-    const contactForm = document.querySelector('.contact-form');
-    const formMessage = createFormMessageElement();
-    contactForm.appendChild(formMessage);    
-    const messages = {
-success: 'Thank you! Your message has been received successfully.',
-error: 'An error occurred while sending your message. Please try again later.',
-validation: 'Please fill in all required fields correctly.',
-sending: 'Sending your message...'
-    };
-    
-    contactForm.addEventListener('submit', handleFormSubmit);
-    setupInputEvents();
-    
-    function createFormMessageElement() {
-        const div = document.createElement('div');
-        div.className = 'form-message';
-        div.style.display = 'none';
-        return div;
-    }
-    
-    function handleFormSubmit(e) {
-        e.preventDefault();
-        
-        if (!validateForm()) {
-            showMessage(messages.validation, 'error');
-            return;
-        }
-        
-        sendFormData();
-    }
-    
-    function validateForm() {
-        let isValid = true;
-        const requiredFields = contactForm.querySelectorAll('[required]');
-        
-        requiredFields.forEach(field => {
-            if (!field.value.trim()) {
-                markFieldAsInvalid(field);
-                isValid = false;
-            } else {
-                markFieldAsValid(field);
-            }
+        <!-- NTG Clarity -->
+        <div style="
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            border-radius: 2rem;
+            padding: 2.5rem;
+            transition: 0.4s ease;
+            box-shadow: var(--card-shadow);
+        " onmouseover="this.style.borderColor='#e11d48'; this.style.transform='translateX(15px) scale(1.02)';" 
+           onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0) scale(1)';">
             
-            if (field.type === 'email' && field.value.trim() && !isValidEmail(field.value)) {
-                markFieldAsInvalid(field);
-                isValid = false;
+            <div style="
+                min-width: 90px;
+                text-align: center;
+                background: rgba(225, 29, 72, 0.15);
+                padding: 0.8rem 1rem;
+                border-radius: 3rem;
+                color: var(--main-color);
+                font-weight: 600;
+                font-size: 1.3rem;
+            ">
+                <i class="fas fa-calendar" style="margin-right: 0.5rem;"></i>Nov 2025 – now
+            </div>
+            
+            <div style="flex: 1;">
+                <h4 style="font-size: 2rem; margin-bottom: 0.2rem;">Flutter & Web Instructor</h4>
+                <p style="color: var(--main-color-light); font-size: 1.5rem; margin-bottom: 0.5rem;">NTG Clarity</p>
+                <p style="font-size: 1.4rem; color: #b0b0b0; line-height: 1.6;">
+                    Teaching Flutter and modern web development while building real‑world projects 
+                    with students — combining hands‑on coding with production‑ready practices.
+                </p>
+            </div>
+            
+            <div style="
+                width: 50px;
+                height: 50px;
+                background: rgba(225, 29, 72, 0.15);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--main-color);
+                font-size: 2.2rem;
+            ">
+                <i class="fas fa-chalkboard-teacher"></i>
+            </div>
+        </div>
+
+        <!-- Innovatera -->
+        <div style="
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            border-radius: 2rem;
+            padding: 2.5rem;
+            transition: 0.4s ease;
+            box-shadow: var(--card-shadow);
+        " onmouseover="this.style.borderColor='#e11d48'; this.style.transform='translateX(15px) scale(1.02)';" 
+           onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0) scale(1)';">
+            
+            <div style="
+                min-width: 90px;
+                text-align: center;
+                background: rgba(225, 29, 72, 0.15);
+                padding: 0.8rem 1rem;
+                border-radius: 3rem;
+                color: var(--main-color);
+                font-weight: 600;
+                font-size: 1.3rem;
+            ">
+                <i class="fas fa-calendar" style="margin-right: 0.5rem;"></i>Jun 2025 – Sep 2025
+            </div>
+            
+            <div style="flex: 1;">
+                <h4 style="font-size: 2rem; margin-bottom: 0.2rem;">JavaScript Content Developer</h4>
+                <p style="color: var(--main-color-light); font-size: 1.5rem; margin-bottom: 0.5rem;">Innovatera</p>
+                <p style="font-size: 1.4rem; color: #b0b0b0; line-height: 1.6;">
+                    Designed interactive JavaScript exercises and real‑world code examples, 
+                    helping learners master ES6+, async patterns, and modern tooling through hands‑on practice.
+                </p>
+            </div>
+            
+            <div style="
+                width: 50px;
+                height: 50px;
+                background: rgba(225, 29, 72, 0.15);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--main-color);
+                font-size: 2.2rem;
+            ">
+                <i class="fas fa-file-code"></i>
+            </div>
+        </div>
+
+        <!-- Freelance Projects -->
+        <div style="
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            border-radius: 2rem;
+            padding: 2.5rem;
+            transition: 0.4s ease;
+            box-shadow: var(--card-shadow);
+        " onmouseover="this.style.borderColor='#e11d48'; this.style.transform='translateX(15px) scale(1.02)';" 
+           onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0) scale(1)';">
+            
+            <div style="
+                min-width: 90px;
+                text-align: center;
+                background: rgba(225, 29, 72, 0.15);
+                padding: 0.8rem 1rem;
+                border-radius: 3rem;
+                color: var(--main-color);
+                font-weight: 600;
+                font-size: 1.3rem;
+            ">
+                <i class="fas fa-calendar" style="margin-right: 0.5rem;"></i>2022 – now
+            </div>
+            
+            <div style="flex: 1;">
+                <h4 style="font-size: 2rem; margin-bottom: 0.2rem;">Frontend Developer</h4>
+                <p style="color: var(--main-color-light); font-size: 1.5rem; margin-bottom: 0.5rem;">Freelance Projects</p>
+                <p style="font-size: 1.4rem; color: #b0b0b0; line-height: 1.6;">
+                    Delivered multiple real‑world responsive web applications using React and JavaScript, 
+                    collaborating directly with clients to turn requirements into clean, production‑ready code.
+                </p>
+            </div>
+            
+            <div style="
+                width: 50px;
+                height: 50px;
+                background: rgba(225, 29, 72, 0.15);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--main-color);
+                font-size: 2.2rem;
+            ">
+                <i class="fas fa-laptop-code"></i>
+            </div>
+        </div>
+
+    </div>
+</section>    <section class="projects" id="projects">
+        <h2 class="titles">My Projects</h2>
+        <div class="projects-container">
+            <!-- Project 1 -->
+            <div class="project-box">
+                <img src="images/movies.jpg" alt="Movies Rating App">
+                <div class="project-layer">
+                    <h4>Movies Rating App</h4>
+                    <p>Real-time movies rating with React and OMDB API</p>
+                    <div class="tech-used">
+                        <span>React</span>
+                        <span>OMDB API</span>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link" data-video="videos/movies.mp4"><i class="fas fa-play"></i></a>
+                        <a href="https://github.com/Toka190/Weather-App"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Project 2 -->
+            <div class="project-box">
+                <img src="images/rose.jpg" alt="Rose Store">
+                <div class="project-layer">
+                    <h4>Rose Store</h4>
+                    <p>Responsive e-commerce website</p>
+                    <div class="tech-used">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link" data-video="videos/rose.mp4"><i class="fas fa-play"></i></a>
+                        <a href="https://github.com/Toka190/Weather-App"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Project 3 -->
+            <div class="project-box">
+                <img src="images/weather.jpg" alt="Weather App">
+                <div class="project-layer">
+                    <h4>Weather App</h4>
+                    <p>Real-time weather application with OpenWeatherMap API</p>
+                    <div class="tech-used">
+                        <span>React</span>
+                        <span>OpenWeatherMap</span>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link" data-video="videos/weather.mp4"><i class="fas fa-play"></i></a>
+                        <a href="https://github.com/Toka190/Weather-App"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Project 4 -->
+            <div class="project-box">
+                <img src="images/pet.jpg" alt="Pet Caretopia">
+                <div class="project-layer">
+                    <h4>Pet Caretopia</h4>
+                    <p>Full-stack pet service with AI recognition</p>
+                    <div class="tech-used">
+                        <span>React</span>
+                        <span>Spring Boot</span>
+                        <span>AI</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link" data-video="videos/pet.mp4"><i class="fas fa-play"></i></a>
+                        <a href="https://github.com/Toka190/Pet_caretopia-Graduation-Project-"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Project 5 -->
+            <div class="project-box">
+                <img src="images/vax.jpg" alt="vaxSchedular">
+                <div class="project-layer">
+                    <h4>vaxSchedular</h4>
+                    <p>Veterinary Management Dashboard</p>
+                    <div class="tech-used">
+                        <span>Spring Boot</span>
+                        <span>CSS3</span>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link" data-video="videos/vax.mp4"><i class="fas fa-play"></i></a>
+                        <a href="https://github.com/Toka190/vaxSchedular"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Project 6 -->
+            <div class="project-box">
+                <img src="images/sky.png" alt="Sky News">
+                <div class="project-layer">
+                    <h4>Sky News</h4>
+                    <p>Clean, professional news interface</p>
+                    <div class="tech-used">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link" data-video="videos/sky.mp4"><i class="fas fa-play"></i></a>
+                        <a href="https://github.com/Toka190/sky-news"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Project 7 -->
+            <div class="project-box">
+                <img src="images/perfume.png" alt="Perfumes Store">
+                <div class="project-layer">
+                    <h4>Perfumes Store</h4>
+                    <p>Elegant UI layout for perfume store</p>
+                    <div class="tech-used">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link" data-video="videos/perfume.mp4"><i class="fas fa-play"></i></a>
+                        <a href="https://github.com/Toka190/perfume"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Project 8 -->
+            <div class="project-box">
+                <img src="images/heart.webp" alt="Heart Disease Prediction">
+                <div class="project-layer">
+                    <h4>Heart Disease Prediction</h4>
+                    <p>ML model for heart disease prediction</p>
+                    <div class="tech-used">
+                        <span>Python</span>
+                        <span>KNN</span>
+                        <span>Naive Bayes</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Toka190/classification-model"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2 class="titles">Get In Touch</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="contact-box">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email</h4>
+                        <p>toka22salah@gmail.com</p>
+                    </div>
+                </div>
+                <div class="contact-box">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h4>Phone</h4>
+                        <p>+20 111 967 2174</p>
+                    </div>
+                </div>
+                <div class="contact-box">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Location</h4>
+                        <p>Cairo, Egypt</p>
+                    </div>
+                </div>
+            </div>
+
+            <form class="contact-form">
+                <div class="input-group">
+                    <input type="text" placeholder="Full Name" required>
+                    <input type="email" placeholder="Email Address" required>
+                </div>
+                <div class="input-group">
+                    <input type="text" placeholder="Mobile Number">
+                    <input type="text" placeholder="Subject">
+                </div>
+                <textarea rows="6" placeholder="Your Message" required></textarea>
+                <div class="form-message" style="display: none;"></div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Video Popup -->
+    <div class="video-popup">
+        <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <div class="video-container">
+                <video id="project-video" controls></video>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuIcon = document.getElementById('menu-icon');
+        const navbar = document.querySelector('.navbar');
+
+        menuIcon.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+            menuIcon.classList.toggle('bx-x');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.navbar a').forEach(link => {
+            link.addEventListener('click', () => {
+                navbar.classList.remove('active');
+                menuIcon.classList.remove('bx-x');
+            });
+        });
+
+        // Active link highlighting
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.navbar a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - sectionHeight / 3)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Video Popup
+        const projectLinks = document.querySelectorAll('.project-link');
+        const videoPopup = document.querySelector('.video-popup');
+        const closeBtn = document.querySelector('.close-btn');
+        const videoElement = document.getElementById('project-video');
+
+        projectLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const videoSrc = link.getAttribute('data-video');
+                videoElement.src = videoSrc;
+                videoPopup.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        closeBtn.addEventListener('click', () => {
+            videoPopup.classList.remove('show');
+            videoElement.pause();
+            videoElement.src = '';
+            document.body.style.overflow = 'auto';
+        });
+
+        videoPopup.addEventListener('click', (e) => {
+            if (e.target === videoPopup) {
+                videoPopup.classList.remove('show');
+                videoElement.pause();
+                videoElement.src = '';
+                document.body.style.overflow = 'auto';
             }
         });
-        
-        return isValid;
-    }
-    
-    function isValidEmail(email) {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(email);
-    }
-    
-    function markFieldAsInvalid(field) {
-        field.style.borderColor = '#dc3545';
-        field.parentElement.classList.add('invalid');
-    }
-    
-    function markFieldAsValid(field) {
-        field.style.borderColor = '';
-        field.parentElement.classList.remove('invalid');
-    }
-    
-    function showMessage(message, type) {
-        formMessage.textContent = message;
-        formMessage.className = `form-message ${type}`;
-        formMessage.style.display = 'block';
-        
-        if (type !== 'sending') {
-            setTimeout(() => {
-                formMessage.style.display = 'none';
-            }, 7000);
-        }
-    }
-    
-    function setupInputEvents() {
-        const inputs = contactForm.querySelectorAll('input, textarea');
-        
-        inputs.forEach(input => {
-            input.addEventListener('input', function() {
-                if (this.hasAttribute('required') && this.value.trim()) {
-                    markFieldAsValid(this);
+
+        // Contact Form
+        const contactForm = document.querySelector('.contact-form');
+        const formMessage = document.querySelector('.form-message');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const requiredFields = contactForm.querySelectorAll('[required]');
+            let isValid = true;
+
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    field.style.borderColor = '#ef4444';
+                    isValid = false;
+                } else {
+                    field.style.borderColor = '';
                 }
-                
-                if (this.type === 'email' && this.value.trim()) {
-                    if (isValidEmail(this.value)) {
-                        markFieldAsValid(this);
-                    } else {
-                        markFieldAsInvalid(this);
+
+                if (field.type === 'email' && field.value.trim()) {
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(field.value)) {
+                        field.style.borderColor = '#ef4444';
+                        isValid = false;
                     }
                 }
             });
+
+            if (!isValid) {
+                showMessage('Please fill in all required fields correctly.', 'error');
+                return;
+            }
+
+            // Simulate form submission
+            showMessage('Sending your message...', 'info');
             
-            input.addEventListener('focus', function() {
-                this.style.borderColor = 'var(--main-color)';
+            setTimeout(() => {
+                showMessage('Thank you! Your message has been sent successfully.', 'success');
+                contactForm.reset();
+            }, 2000);
+        });
+
+        function showMessage(message, type) {
+            formMessage.textContent = message;
+            formMessage.className = `form-message ${type}`;
+            formMessage.style.display = 'block';
+
+            if (type !== 'info') {
+                setTimeout(() => {
+                    formMessage.style.display = 'none';
+                }, 5000);
+            }
+        }
+
+        // Remove validation styling on input
+        contactForm.querySelectorAll('input, textarea').forEach(field => {
+            field.addEventListener('input', () => {
+                field.style.borderColor = '';
             });
-            
-            input.addEventListener('blur', function() {
-                if (!this.classList.contains('invalid')) {
-                    this.style.borderColor = '';
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
             });
         });
-    }
+    </script>
+    <!-- Footer Section -->
+<footer style="
+    background: rgba(10, 12, 15, 0.95);
+    padding: 4rem 9% 2rem;
+    border-top: 1px solid var(--glass-border);
+    text-align: center;
+">
+    <div style="
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-bottom: 3rem;
+    ">
+        <div style="text-align: left;">
+            <a href="#" class="logo" style="font-size: 2.4rem;">Toka Salah</a>
+        </div>
+        
+        <div style="display: flex; gap: 2rem;">
+            <a href="#home" style="color: #a0a0a0; font-size: 1.4rem; transition: 0.3s;">Home</a>
+            <a href="#about" style="color: #a0a0a0; font-size: 1.4rem; transition: 0.3s;">About</a>
+            <a href="#experience" style="color: #a0a0a0; font-size: 1.4rem; transition: 0.3s;">Experience</a>
+            <a href="#projects" style="color: #a0a0a0; font-size: 1.4rem; transition: 0.3s;">Projects</a>
+            <a href="#contact" style="color: #a0a0a0; font-size: 1.4rem; transition: 0.3s;">Contact</a>
+        </div>
+        
+        <div style="display: flex; gap: 1.5rem;">
+            <a href="https://www.linkedin.com/in/tokasalah2002" target="_blank" style="
+                width: 3.8rem;
+                height: 3.8rem;
+                background: rgba(225, 29, 72, 0.1);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--main-color);
+                font-size: 1.8rem;
+                transition: 0.3s;
+            "><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/Toka190" target="_blank" style="
+                width: 3.8rem;
+                height: 3.8rem;
+                background: rgba(225, 29, 72, 0.1);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--main-color);
+                font-size: 1.8rem;
+                transition: 0.3s;
+            "><i class="fab fa-github"></i></a>
+            <a href="mailto:toka22salah@gmail.com" style="
+                width: 3.8rem;
+                height: 3.8rem;
+                background: rgba(225, 29, 72, 0.1);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--main-color);
+                font-size: 1.8rem;
+                transition: 0.3s;
+            "><i class="fa-solid fa-envelope"></i></a>
+        </div>
+    </div>
     
-    function sendFormData() {
-        showMessage(messages.sending, 'info');
-                setTimeout(() => {
-            showMessage(messages.success, 'success');
-            contactForm.reset();
-            
-        }, 2000);
-    }
-    
-});
-document.addEventListener('DOMContentLoaded', function() {
-    const projectLinks = document.querySelectorAll('.project-links a:first-child');
-    const videoPopup = document.querySelector('.video-popup');
-    const closeBtn = document.querySelector('.close-btn');
-    const videoContainer = document.querySelector('.video-container');
-    
-    
-    const videoElement = document.createElement('video');
-    videoElement.controls = true;
-    videoElement.classList.add('project-video');
-    videoContainer.appendChild(videoElement);
-    
-    projectLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const videoSrc = this.getAttribute('data-video');
-            
-            
-            videoElement.innerHTML = `
-                <source src="${videoSrc}" type="video/mp4">
-                Your browser does not support HTML video.
-            `;
-            videoElement.load();
-            
-           
-            videoPopup.classList.add('show');
-            document.body.style.overflow = 'hidden'; 
-        });
-    });
-    
-    
-    closeBtn.addEventListener('click', function() {
-        videoPopup.classList.remove('show');
-        videoElement.pause();
-        document.body.style.overflow = 'auto';
-    });
-    
-    videoPopup.addEventListener('click', function(e) {
-        if(e.target === this) {
-            videoPopup.classList.remove('show');
-            videoElement.pause();
-            document.body.style.overflow = 'auto';
-        }
-    });
-});
-</script></body>
+    <div style="
+        border-top: 1px solid var(--glass-border);
+        padding-top: 2rem;
+        font-size: 1.4rem;
+        color: #6c7a8a;
+    ">
+        <p>© 2025 Toka Salah. All rights reserved. | Built with <span style="color: var(--main-color);">❤</span> for the dev community</p>
+    </div>
+</footer>
+</body>
 </html>
