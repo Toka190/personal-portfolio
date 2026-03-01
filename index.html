@@ -516,31 +516,33 @@
     box-shadow: 0 0 60px rgba(225, 29, 72, 0.5);
 }
 
+
 @media (max-width: 768px) {
     .image-wrapper::before {
-        animation: rotate 30s linear infinite; 
-        opacity: 0.2;
-        top: -3px;
-        left: -3px;
-        right: -3px;
-        bottom: -3px;
+        animation: none;
+        opacity: 0.3; 
+        top: -5px;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
     }
     
     .home-img img {
-        width: 50vw;
-        animation: floatImage 10s ease-in-out infinite; 
+        width: 50vw; 
+        animation: none; 
         border: 2px solid rgba(225, 29, 72, 0.5);
-        box-shadow: 0 0 25px rgba(225, 29, 72, 0.2);
+        box-shadow: 0 0 30px rgba(225, 29, 72, 0.2);
+        transform: none !important; /* منع أي تحريك */
     }
     
+    .home-img img:hover {
+        transform: none; 
+    }
+}
 
-    @keyframes floatImage {
-        0%, 100% {
-            transform: translateY(0);
-        }
-        50% {
-            transform: translateY(-8px);
-        }
+@media (max-width: 450px) {
+    .home-img img {
+        width: 60vw;
     }
 }
         /* Section Titles */
@@ -1553,7 +1555,7 @@
             <div class="experience-content">
                 <h4>Front-end Developer</h4>
                 <span class="experience-company">Freelance Projects</span>
-                <p>Delivered responsive web applications using<br> React, JavaScript, and modern CSS frameworks.</p>
+                <p>Delivered responsive web applications<br> using React, JavaScript, and modern CSS frameworks.</p>
             </div>
             
             <div class="experience-icon">
