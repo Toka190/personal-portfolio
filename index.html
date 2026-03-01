@@ -451,73 +451,98 @@
             position: relative;
         }
 
-        .image-wrapper {
-            position: relative;
-            display: inline-block;
-        }
+.image-wrapper {
+    position: relative;
+    display: inline-block;
+}
 
-        .image-wrapper::before {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            background: linear-gradient(135deg, var(--main-color), transparent, var(--main-color-light));
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            animation: rotate 10s linear infinite;
-            z-index: -1;
-        }
+.image-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    background: linear-gradient(135deg, var(--main-color), transparent, var(--main-color-light));
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    animation: rotate 20s linear infinite;
+    opacity: 0.6;
+    z-index: -1;
+}
 
-        @keyframes rotate {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
-        }
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
 
-        .home-img img {
-            width: 30vw;
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            border: 3px solid rgba(225, 29, 72, 0.5);
-            box-shadow: 0 0 50px rgba(225, 29, 72, 0.4);
-            animation: morphImage 8s ease-in-out infinite, floatImage 6s ease-in-out infinite;
-            transition: 0.5s;
-            position: relative;
-            z-index: 1;
-        }
+.home-img img {
+    width: 25vw;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    border: 3px solid rgba(225, 29, 72, 0.5);
+    box-shadow: 0 0 40px rgba(225, 29, 72, 0.3);
+    animation: morphImage 12s ease-in-out infinite, floatImage 8s ease-in-out infinite;
+    transition: 0.5s;
+    position: relative;
+    z-index: 1;
+}
 
-        @keyframes morphImage {
-            0%, 100% {
-                border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            }
-            25% {
-                border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
-            }
-            50% {
-                border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%;
-            }
-            75% {
-                border-radius: 60% 40% 40% 60% / 60% 60% 40% 40%;
-            }
-        }
+@keyframes morphImage {
+    0%, 100% {
+        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    }
+    33% {
+        border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+    }
+    66% {
+        border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
+    }
+}
 
-        @keyframes floatImage {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
-        }
+@keyframes floatImage {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
 
-        .home-img img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 70px rgba(225, 29, 72, 0.6);
-        }
+.home-img img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 60px rgba(225, 29, 72, 0.5);
+}
 
+@media (max-width: 768px) {
+    .image-wrapper::before {
+        animation: rotate 30s linear infinite; 
+        opacity: 0.2;
+        top: -3px;
+        left: -3px;
+        right: -3px;
+        bottom: -3px;
+    }
+    
+    .home-img img {
+        width: 50vw;
+        animation: floatImage 10s ease-in-out infinite; 
+        border: 2px solid rgba(225, 29, 72, 0.5);
+        box-shadow: 0 0 25px rgba(225, 29, 72, 0.2);
+    }
+    
+
+    @keyframes floatImage {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-8px);
+        }
+    }
+}
         /* Section Titles */
         .titles {
             font-size: 4.5rem;
@@ -1494,7 +1519,7 @@
             <div class="experience-content">
                 <h4>Flutter & Web Instructor</h4>
                 <span class="experience-company">NTG Clarity</span>
-                <p>Teaching Flutter and web development through real‑world projects. </p>
+                <p>Teaching Flutter and web development <br> through real‑world projects. </p>
             </div>
             
             <div class="experience-icon">
@@ -1511,7 +1536,7 @@
             <div class="experience-content">
                 <h4>JavaScript Content Developer</h4>
                 <span class="experience-company">Innovatera</span>
-                <p>Created interactive coding exercises and real‑world examples to teach ES6+, async patterns, and modern JavaScript concepts.</p>
+                <p>Created interactive coding exercises and real‑world examples to teach ES6+.</p>
             </div>
             
             <div class="experience-icon">
@@ -1528,7 +1553,7 @@
             <div class="experience-content">
                 <h4>Front-end Developer</h4>
                 <span class="experience-company">Freelance Projects</span>
-                <p>Delivered responsive web applications using React, JavaScript, and modern CSS frameworks.</p>
+                <p>Delivered responsive web applications using<br> React, JavaScript, and modern CSS frameworks.</p>
             </div>
             
             <div class="experience-icon">
