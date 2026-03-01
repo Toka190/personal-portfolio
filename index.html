@@ -256,6 +256,58 @@
             }
         }
 
+        /* Scroll Animation Classes */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .fade-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scale-up {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .scale-up.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Delay Classes */
+        .delay-1 { transition-delay: 0.2s; }
+        .delay-2 { transition-delay: 0.4s; }
+        .delay-3 { transition-delay: 0.6s; }
+        .delay-4 { transition-delay: 0.8s; }
+        .delay-5 { transition-delay: 1s; }
+
         /* Home Section */
         .home {
             display: flex;
@@ -1366,311 +1418,311 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <h2 class="titles">About Me</h2>
-        <div class="about-content">
-            <div class="about-left">
-                <div class="detail-box">
-                    <i class="fas fa-briefcase"></i>
-                    <div>
-                        <h4>Current Position</h4>
-                        <p>Front-end & Flutter<br>Instructor at NTG Clarity</p>
-                    </div>
-                </div>
-
-                <div class="detail-box">
-                    <i class="fas fa-user-graduate"></i>
-                    <div>
-                        <h4>Education</h4>
-                        <p>Bachelor's in Computer Science & AI<br>Helwan University, 2025</p>
-                        <p>Overall Grade: Very Good</p>
-                    </div>
-                </div>
-                
-                <div class="detail-box">
-                    <i class="fas fa-code"></i>
-                    <div>
-                        <h4>Skills</h4>
-                        <div class="skills-list">
-                            <span>HTML5</span>
-                            <span>CSS3</span>
-                            <span>JavaScript</span>
-                            <span>React</span>
-                            <span>Flutter</span>
-                            <span>Dart</span>
-                            <span>Bootstrap</span>
-                            <span>Git</span>
-                            <span>MySQL</span>
-                            <span>PHP</span>
-                            <span>Figma</span>
-                        </div>
-                    </div>
+<!-- About Section -->
+<section class="about" id="about">
+    <h2 class="titles fade-up" style="text-align: center; display: block; left: 0; transform: none;">About Me</h2>
+    <div class="about-content">
+        <div class="about-left">
+            <div class="detail-box fade-left delay-1">
+                <i class="fas fa-briefcase"></i>
+                <div>
+                    <h4>Current Position</h4>
+                    <p>Front-end & Flutter<br>Instructor at NTG Clarity</p>
                 </div>
             </div>
 
-            <div class="certificates-wrapper">
-                <h4><i class="fas fa-certificate" style="margin-right: 1rem;"></i> My Certificates</h4>
-                <div class="certificate-item">
-                    <strong>Web Development using PHP & MySQL</strong> – ITI
-                </div>
-                <div class="certificate-item">
-                    <strong>Data Analysis Trainee</strong> – DEPI (Graduated Dec 2024)
-                </div>
-                <div class="certificate-item">
-                    <strong>Frontend Trainee</strong> – Codveda
+            <div class="detail-box fade-left delay-2">
+                <i class="fas fa-user-graduate"></i>
+                <div>
+                    <h4>Education</h4>
+                    <p>Bachelor's in Computer Science & AI<br>Helwan University, 2025</p>
+                    <p>Overall Grade: Very Good</p>
                 </div>
             </div>
-        </div>
-        <div style="text-align: center; margin-top: 4rem;">
-            <a href="#contact" class="btn">Let's Talk <i class="fas fa-paper-plane" style="margin-left: 1rem;"></i></a>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section class="experience" id="experience">
-        <h2 class="titles">My Journey</h2>
-
-        <div style="max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 2rem;">
-            <!-- NTG Clarity -->
-            <div class="experience-item">
-                <div class="experience-date">
-                    <i class="fas fa-calendar" style="margin-right: 0.5rem;"></i>Nov 2025 – Present
-                </div>
-                
-                <div class="experience-content">
-                    <h4>Flutter & Web Instructor</h4>
-                    <span class="experience-company">NTG Clarity</span>
-                    <p>Teaching Flutter and web development through real‑world projects. Mentoring students in modern front-end technologies and best practices.</p>
-                </div>
-                
-                <div class="experience-icon">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                </div>
-            </div>
-
-            <!-- Innovatera -->
-            <div class="experience-item">
-                <div class="experience-date">
-                    <i class="fas fa-calendar" style="margin-right: 0.5rem;"></i>Jun – Sep 2025
-                </div>
-                
-                <div class="experience-content">
-                    <h4>JavaScript Content Developer</h4>
-                    <span class="experience-company">Innovatera</span>
-                    <p>Created interactive coding exercises and real‑world examples to teach ES6+, async patterns, and modern JavaScript concepts.</p>
-                </div>
-                
-                <div class="experience-icon">
-                    <i class="fas fa-file-code"></i>
-                </div>
-            </div>
-
-            <!-- Freelance Projects -->
-            <div class="experience-item">
-                <div class="experience-date">
-                    <i class="fas fa-calendar" style="margin-right: 0.5rem;"></i>2022 – Present
-                </div>
-                
-                <div class="experience-content">
-                    <h4>Front-end Developer</h4>
-                    <span class="experience-company">Freelance Projects</span>
-                    <p>Delivered responsive web applications using React, JavaScript, and modern CSS frameworks. Collaborated with clients to create stunning user interfaces.</p>
-                </div>
-                
-                <div class="experience-icon">
-                    <i class="fas fa-laptop-code"></i>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Projects Section -->
-    <section class="projects" id="projects">
-        <h2 class="titles">My Projects</h2>
-        <div class="projects-container">
-            <!-- Project 1 -->
-            <div class="project-box">
-                <img src="images/movies.jpg" alt="Movies Rating App">
-                <div class="project-layer">
-                    <h4>Movies Rating App</h4>
-                    <p>Real-time movies rating with React and OMDB API</p>
-                    <div class="tech-used">
-                        <span>React</span>
-                        <span>OMDB API</span>
-                        <span>JavaScript</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link" data-video="videos/movies.mp4"><i class="fas fa-play"></i></a>
-                        <a href="https://github.com/Toka190/Weather-App"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- Project 2 -->
-            <div class="project-box">
-                <img src="images/rose.jpg" alt="Rose Store">
-                <div class="project-layer">
-                    <h4>Rose Store</h4>
-                    <p>Responsive e-commerce website</p>
-                    <div class="tech-used">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>JavaScript</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link" data-video="videos/rose.mp4"><i class="fas fa-play"></i></a>
-                        <a href="https://github.com/Toka190/Weather-App"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- Project 3 -->
-            <div class="project-box">
-                <img src="images/weather.jpg" alt="Weather App">
-                <div class="project-layer">
-                    <h4>Weather App</h4>
-                    <p>Real-time weather application with OpenWeatherMap API</p>
-                    <div class="tech-used">
-                        <span>React</span>
-                        <span>OpenWeatherMap</span>
-                        <span>JavaScript</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link" data-video="videos/weather.mp4"><i class="fas fa-play"></i></a>
-                        <a href="https://github.com/Toka190/Weather-App"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- Project 4 -->
-            <div class="project-box">
-                <img src="images/pet.jpg" alt="Pet Caretopia">
-                <div class="project-layer">
-                    <h4>Pet Caretopia</h4>
-                    <p>Full-stack pet service with AI recognition</p>
-                    <div class="tech-used">
-                        <span>React</span>
-                        <span>Spring Boot</span>
-                        <span>AI</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link" data-video="videos/pet.mp4"><i class="fas fa-play"></i></a>
-                        <a href="https://github.com/Toka190/Pet_caretopia-Graduation-Project-"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- Project 5 -->
-            <div class="project-box">
-                <img src="images/vax.jpg" alt="vaxSchedular">
-                <div class="project-layer">
-                    <h4>vaxSchedular</h4>
-                    <p>Veterinary Management Dashboard</p>
-                    <div class="tech-used">
-                        <span>Spring Boot</span>
+            
+            <div class="detail-box fade-left delay-3">
+                <i class="fas fa-code"></i>
+                <div>
+                    <h4>Skills</h4>
+                    <div class="skills-list">
+                        <span>HTML5</span>
                         <span>CSS3</span>
                         <span>JavaScript</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link" data-video="videos/vax.mp4"><i class="fas fa-play"></i></a>
-                        <a href="https://github.com/Toka190/vaxSchedular"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- Project 6 -->
-            <div class="project-box">
-                <img src="images/sky.png" alt="Sky News">
-                <div class="project-layer">
-                    <h4>Sky News</h4>
-                    <p>Clean, professional news interface</p>
-                    <div class="tech-used">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>JavaScript</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link" data-video="videos/sky.mp4"><i class="fas fa-play"></i></a>
-                        <a href="https://github.com/Toka190/sky-news"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- Project 7 -->
-            <div class="project-box">
-                <img src="images/perfume.png" alt="Perfumes Store">
-                <div class="project-layer">
-                    <h4>Perfumes Store</h4>
-                    <p>Elegant UI layout for perfume store</p>
-                    <div class="tech-used">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>JavaScript</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link" data-video="videos/perfume.mp4"><i class="fas fa-play"></i></a>
-                        <a href="https://github.com/Toka190/perfume"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- Project 8 -->
-            <div class="project-box">
-                <img src="images/heart.webp" alt="Heart Disease Prediction">
-                <div class="project-layer">
-                    <h4>Heart Disease Prediction</h4>
-                    <p>ML model for heart disease prediction</p>
-                    <div class="tech-used">
+                        <span>React</span>
+                        <span>Flutter</span>
+                        <span>Dart</span>
+                        <span>Bootstrap</span>
                         <span>Python</span>
-                        <span>KNN</span>
-                        <span>Naive Bayes</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/Toka190/classification-model"><i class="fab fa-github"></i></a>
+                        <span>Git</span>
+                        <span>MySQL</span>
+                        <span>PHP</span>
+                        <span>Figma</span>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <h2 class="titles">Get In Touch</h2>
-        <div class="contact-content">
-            <div class="contact-info">
-                <div class="contact-box">
-                    <i class="fas fa-envelope"></i>
-                    <div>
-                        <h4>Email</h4>
-                        <p>toka22salah@gmail.com</p>
-                    </div>
+        <div class="certificates-wrapper fade-right delay-4">
+            <h4><i class="fas fa-certificate" style="margin-right: 1rem;"></i> My Certificates</h4>
+            <div class="certificate-item">
+                <strong>Web Development using PHP & MySQL</strong> – ITI
+            </div>
+            <div class="certificate-item">
+                <strong>Data Analysis Trainee</strong> – DEPI (Graduated Dec 2024)
+            </div>
+            <div class="certificate-item">
+                <strong>Frontend Trainee</strong> – Codveda
+            </div>
+        </div>
+    </div>
+    <div style="text-align: center; margin-top: 4rem;">
+        <a href="#contact" class="btn scale-up delay-5">Let's Talk <i class="fas fa-paper-plane" style="margin-left: 1rem;"></i></a>
+    </div>
+</section>
+
+<!-- Experience Section -->
+<section class="experience" id="experience">
+    <h2 class="titles fade-up" style="text-align: center; display: block; left: 0; transform: none;">My Journey</h2>
+
+    <div style="max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 2rem;">
+        <!-- NTG Clarity -->
+        <div class="experience-item fade-left delay-1">
+            <div class="experience-date">
+                <i class="fas fa-calendar" style="margin-right: 0.5rem;"></i>Nov 2025 – Present
+            </div>
+            
+            <div class="experience-content">
+                <h4>Flutter & Web Instructor</h4>
+                <span class="experience-company">NTG Clarity</span>
+                <p>Teaching Flutter and web development through real‑world projects. Mentoring students in modern front-end technologies and best practices.</p>
+            </div>
+            
+            <div class="experience-icon">
+                <i class="fas fa-chalkboard-teacher"></i>
+            </div>
+        </div>
+
+        <!-- Innovatera -->
+        <div class="experience-item fade-right delay-2">
+            <div class="experience-date">
+                <i class="fas fa-calendar" style="margin-right: 0.5rem;"></i>Jun – Sep 2025
+            </div>
+            
+            <div class="experience-content">
+                <h4>JavaScript Content Developer</h4>
+                <span class="experience-company">Innovatera</span>
+                <p>Created interactive coding exercises and real‑world examples to teach ES6+, async patterns, and modern JavaScript concepts.</p>
+            </div>
+            
+            <div class="experience-icon">
+                <i class="fas fa-file-code"></i>
+            </div>
+        </div>
+
+        <!-- Freelance Projects -->
+        <div class="experience-item fade-left delay-3">
+            <div class="experience-date">
+                <i class="fas fa-calendar" style="margin-right: 0.5rem;"></i>2022 – Present
+            </div>
+            
+            <div class="experience-content">
+                <h4>Front-end Developer</h4>
+                <span class="experience-company">Freelance Projects</span>
+                <p>Delivered responsive web applications using React, JavaScript, and modern CSS frameworks. Collaborated with clients to create stunning user interfaces.</p>
+            </div>
+            
+            <div class="experience-icon">
+                <i class="fas fa-laptop-code"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section class="projects" id="projects">
+    <h2 class="titles fade-up" style="text-align: center; display: block; left: 0; transform: none;">My Projects</h2>
+    <div class="projects-container">
+        <!-- Project 1 -->
+        <div class="project-box scale-up delay-1">
+            <img src="images/movies.jpg" alt="Movies Rating App">
+            <div class="project-layer">
+                <h4>Movies Rating App</h4>
+                <p>Real-time movies rating with React and OMDB API</p>
+                <div class="tech-used">
+                    <span>React</span>
+                    <span>OMDB API</span>
+                    <span>JavaScript</span>
                 </div>
-                <div class="contact-box">
-                    <i class="fas fa-phone"></i>
-                    <div>
-                        <h4>Phone</h4>
-                        <p>+20 111 967 2174</p>
-                    </div>
-                </div>
-                <div class="contact-box">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <h4>Location</h4>
-                        <p>Cairo, Egypt</p>
-                    </div>
+                <div class="project-links">
+                    <a href="#" class="project-link" data-video="videos/movies.mp4"><i class="fas fa-play"></i></a>
+                    <a href="https://github.com/Toka190/Weather-App"><i class="fab fa-github"></i></a>
                 </div>
             </div>
-
-            <form class="contact-form">
-                <div class="input-group">
-                    <input type="text" placeholder="Full Name" required>
-                    <input type="email" placeholder="Email Address" required>
-                </div>
-                <div class="input-group">
-                    <input type="text" placeholder="Mobile Number">
-                    <input type="text" placeholder="Subject">
-                </div>
-                <textarea rows="6" placeholder="Your Message" required></textarea>
-                <div class="form-message" style="display: none;"></div>
-                <button type="submit" class="btn">Send Message <i class="fas fa-paper-plane" style="margin-left: 1rem;"></i></button>
-            </form>
         </div>
-    </section>
+        <!-- Project 2 -->
+        <div class="project-box scale-up delay-2">
+            <img src="images/rose.jpg" alt="Rose Store">
+            <div class="project-layer">
+                <h4>Rose Store</h4>
+                <p>Responsive e-commerce website</p>
+                <div class="tech-used">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="project-link" data-video="videos/rose.mp4"><i class="fas fa-play"></i></a>
+                    <a href="https://github.com/Toka190/Weather-App"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- Project 3 -->
+        <div class="project-box scale-up delay-3">
+            <img src="images/weather.jpg" alt="Weather App">
+            <div class="project-layer">
+                <h4>Weather App</h4>
+                <p>Real-time weather application with OpenWeatherMap API</p>
+                <div class="tech-used">
+                    <span>React</span>
+                    <span>OpenWeatherMap</span>
+                    <span>JavaScript</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="project-link" data-video="videos/weather.mp4"><i class="fas fa-play"></i></a>
+                    <a href="https://github.com/Toka190/Weather-App"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- Project 4 -->
+        <div class="project-box scale-up delay-4">
+            <img src="images/pet.jpg" alt="Pet Caretopia">
+            <div class="project-layer">
+                <h4>Pet Caretopia</h4>
+                <p>Full-stack pet service with AI recognition</p>
+                <div class="tech-used">
+                    <span>React</span>
+                    <span>Spring Boot</span>
+                    <span>AI</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="project-link" data-video="videos/pet.mp4"><i class="fas fa-play"></i></a>
+                    <a href="https://github.com/Toka190/Pet_caretopia-Graduation-Project-"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- Project 5 -->
+        <div class="project-box scale-up delay-1">
+            <img src="images/vax.jpg" alt="vaxSchedular">
+            <div class="project-layer">
+                <h4>vaxSchedular</h4>
+                <p>Veterinary Management Dashboard</p>
+                <div class="tech-used">
+                    <span>Spring Boot</span>
+                    <span>CSS3</span>
+                    <span>JavaScript</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="project-link" data-video="videos/vax.mp4"><i class="fas fa-play"></i></a>
+                    <a href="https://github.com/Toka190/vaxSchedular"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- Project 6 -->
+        <div class="project-box scale-up delay-2">
+            <img src="images/sky.png" alt="Sky News">
+            <div class="project-layer">
+                <h4>Sky News</h4>
+                <p>Clean, professional news interface</p>
+                <div class="tech-used">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="project-link" data-video="videos/sky.mp4"><i class="fas fa-play"></i></a>
+                    <a href="https://github.com/Toka190/sky-news"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- Project 7 -->
+        <div class="project-box scale-up delay-3">
+            <img src="images/perfume.png" alt="Perfumes Store">
+            <div class="project-layer">
+                <h4>Perfumes Store</h4>
+                <p>Elegant UI layout for perfume store</p>
+                <div class="tech-used">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="project-link" data-video="videos/perfume.mp4"><i class="fas fa-play"></i></a>
+                    <a href="https://github.com/Toka190/perfume"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- Project 8 -->
+        <div class="project-box scale-up delay-4">
+            <img src="images/heart.webp" alt="Heart Disease Prediction">
+            <div class="project-layer">
+                <h4>Heart Disease Prediction</h4>
+                <p>ML model for heart disease prediction</p>
+                <div class="tech-used">
+                    <span>Python</span>
+                    <span>KNN</span>
+                    <span>Naive Bayes</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/Toka190/classification-model"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
+<!-- Contact Section -->
+<section class="contact" id="contact">
+    <h2 class="titles fade-up" style="text-align: center; display: block; left: 0; transform: none;">Get In Touch</h2>
+    <div class="contact-content">
+        <div class="contact-info">
+            <div class="contact-box fade-left delay-1">
+                <i class="fas fa-envelope"></i>
+                <div>
+                    <h4>Email</h4>
+                    <p>toka22salah@gmail.com</p>
+                </div>
+            </div>
+            <div class="contact-box fade-left delay-2">
+                <i class="fas fa-phone"></i>
+                <div>
+                    <h4>Phone</h4>
+                    <p>+20 111 967 2174</p>
+                </div>
+            </div>
+            <div class="contact-box fade-left delay-3">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                    <h4>Location</h4>
+                    <p>Cairo, Egypt</p>
+                </div>
+            </div>
+        </div>
+
+        <form class="contact-form fade-right delay-4">
+            <div class="input-group">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email Address" required>
+            </div>
+            <div class="input-group">
+                <input type="text" placeholder="Mobile Number">
+                <input type="text" placeholder="Subject">
+            </div>
+            <textarea rows="6" placeholder="Your Message" required></textarea>
+            <div class="form-message" style="display: none;"></div>
+            <button type="submit" class="btn">Send Message <i class="fas fa-paper-plane" style="margin-left: 1rem;"></i></button>
+        </form>
+    </div>
+</section>
     <!-- Video Popup -->
     <div class="video-popup">
         <div class="popup-content">
@@ -1765,6 +1817,25 @@
                 top: 0,
                 behavior: 'smooth'
             });
+        });
+
+        // Scroll Animation Observer
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with animation classes
+        document.querySelectorAll('.fade-up, .fade-left, .fade-right, .scale-up').forEach(el => {
+            observer.observe(el);
         });
 
         // Video Popup
@@ -1902,7 +1973,7 @@
 
             if (!isDeleting && charIndex === currentText.length) {
                 isDeleting = true;
-                setTimeout(type, 500);
+                setTimeout(type, 700);
             } else if (isDeleting && charIndex === 0) {
                 isDeleting = false;
                 textArrayIndex = (textArrayIndex + 1) % textArray.length;
